@@ -5,12 +5,13 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 const { Pool, Client } = require('pg')
-
+var passport = require('passport'),
+session =require("express-session");
+var LocalStrategy = require('passport-local').Strategy;
 const conString = "postgres://postgres:ac3r@localhost:8760/Node"
 const client=new Client(conString);
 var index = require('./routes/index');
 var users = require('./routes/users');
-
 var app = express();
 
 // view engine setup
@@ -22,7 +23,14 @@ app.set('view engine', 'pug');
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(session({
+  saveUninitialized:false,
+  resave:false,
+  secret:'nodejs app with postgre sequelize sql'
+}))
 app.use(cookieParser());
+app.use(passport.initialize());
+app.use(passport.session());
 app.use(express.static(path.join(__dirname, 'public')));
 
 
@@ -30,9 +38,10 @@ client.connect((err)=>{
   if(err) throw err;
   else
     {
-       Console.log("Connected");
+       console.log("Connected");
     }
 })
+
 app.use('/', index);
 app.use('/users', users);
 

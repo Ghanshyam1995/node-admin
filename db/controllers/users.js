@@ -9,7 +9,14 @@ module.exports = {
             res.status(500).json(err);
         })
     },
-
+    findbyEmail(req, res) {
+        users.findAll({ where: { email: req.body.email } })
+            .then((user) => {
+                return user;
+            }).catch((err) => {
+                console.log(err);
+            })
+    },
     show(req, res) {
         users.findById(req.params.id, {
 

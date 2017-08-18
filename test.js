@@ -7,6 +7,7 @@ models.sequelize
   .authenticate()
   .then(function () {
     console.log('Connection is Successfull');
+    console.log(users.findbyEmail());
   })
   .catch(function(error) {
     console.log("Error creating connection:", error);

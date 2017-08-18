@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+html
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title #{title}
+        link(href="/stylesheets/style.css", rel="stylesheet")
+        
+    body
+      .login-page
+        .form
+          form.register-form
+           input(type='text', placeholder='name')
+           input(type='password', placeholder='password')
+           input(type='text', placeholder='email address')
+           button Create
+           p.message
+            | Already registered? 
+            a(href='/users/login') Sign In
+      
