@@ -1,0 +1,29 @@
+{
+  "name": "sequelize-db",
+  "description": "admin template in node with postgre sql database",
+  "main": "app.js",
+  "authors": [
+    "\"Ghanshyam Singh<Ghanshyam3303@gmail.com>\""
+  ],
+  "license": "MIT",
+  "keywords": [
+    "node.js",
+    "admin-template",
+    "postgre",
+    "sql",
+    "node.js admin template"
+  ],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery":"latest",
+    "bootstrap":"latest",
+    "font-awesome":"latest"
+  }
+}
